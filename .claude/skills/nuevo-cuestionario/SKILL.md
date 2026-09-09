@@ -75,6 +75,14 @@ Usa `assets/plantillas/plantilla-cuestionario.html` como base. Reglas:
      preguntas visualmente) en lugar de detener toda la conversión.
    - Si una pregunta está anulada en la plantilla oficial, conserva sus
      opciones, añade `[ANULADA]` al título y usa `"anulada"` como respuesta.
+   - Si la propia plantilla de respuestas marca una pregunta como dudosa,
+     impugnada o impugnable, o si tú detectas que la respuesta oficial es
+     discutible (p. ej. contradice el conocimiento estándar de la materia),
+     usa igualmente la respuesta oficial en `window.quizAnswers` pero añade
+     justo debajo de las opciones un aviso breve con
+     `<div class="nota-pregunta">Nota: ...</div>` resumiendo la duda en una
+     frase. No lo uses para dudas tuyas sin fundamento, solo cuando la fuente
+     lo señale o la inconsistencia sea clara.
 6. Conserva los casos clínicos con el bloque `intro-caso` cuando el PDF
    agrupe preguntas bajo un enunciado común.
 7. Las rutas relativas deben ser `../../../css/styles.css`,
