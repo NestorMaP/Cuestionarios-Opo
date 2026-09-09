@@ -53,6 +53,67 @@
 
   updateQuizLinks();
 
+  const ajustesMenu = document.querySelector(".ajustes-menu");
+  const ajustesToggle = document.getElementById("ajustes-toggle");
+  const ajustesLista = document.getElementById("ajustes-lista");
+  const failuresPrefix = "quiz-failures:";
+
+  function cerrarAjustes() {
+    ajustesLista?.setAttribute("hidden", "");
+    ajustesToggle?.setAttribute("aria-expanded", "false");
+  }
+
+  ajustesToggle?.addEventListener("click", () => {
+    const abierto = !ajustesLista?.hasAttribute("hidden");
+    if (abierto) {
+      cerrarAjustes();
+    } else {
+      ajustesLista?.removeAttribute("hidden");
+      ajustesToggle.setAttribute("aria-expanded", "true");
+    }
+  });
+
+  document.getElementById("borrar-fallos")?.addEventListener("click", () => {
+    const confirmado = window.confirm(
+      "¿Eliminar el registro de todas las preguntas falladas de todos los cuestionarios? Esta acción no se puede deshacer.",
+    );
+    cerrarAjustes();
+    if (!confirmado) return;
+    Object.keys(localStorage)
+      .filter((key) => key.startsWith(failuresPrefix))
+      .forEach((key) => localStorage.removeItem(key));
+    window.alert("Registro de respuestas falladas eliminado.");
+  });
+
+  document.getElementById("restablecer-todo")?.addEventListener("click", () => {
+    const confirmado = window.confirm(
+      "¿Restablecer todos los datos guardados (progreso y registro de fallos) de todos los cuestionarios? Esta acción no se puede deshacer.",
+    );
+    cerrarAjustes();
+    if (!confirmado) return;
+    Object.keys(localStorage)
+      .filter((key) => key.startsWith(storagePrefix))
+      .forEach((key) => localStorage.removeItem(key));
+    updateQuizLinks();
+    window.alert("Todos los datos se han restablecido.");
+  });
+
+  document.addEventListener("click", (event) => {
+    if (
+      !ajustesLista?.hasAttribute("hidden") &&
+      ajustesMenu &&
+      !ajustesMenu.contains(event.target)
+    ) {
+      cerrarAjustes();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      cerrarAjustes();
+    }
+  });
+
   function getStoredData() {
     return Object.keys(localStorage)
       .filter((key) => key.startsWith(storagePrefix))
