@@ -23,7 +23,7 @@
     overlay.querySelector("form").addEventListener("submit", (event) => {
       event.preventDefault();
       const input = overlay.querySelector("input");
-      if (input.value !== accessPassword) {
+      if (input.value.toLowerCase() !== accessPassword.toLowerCase()) {
         overlay.querySelector(".access-error").hidden = false;
         input.select();
         return;
