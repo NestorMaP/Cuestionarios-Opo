@@ -2,6 +2,7 @@
   const exportButton = document.getElementById("exportar-datos");
   const importInput = document.getElementById("importar-datos");
   const storagePrefix = "quiz-";
+  const penaltyStoragePrefix = "quiz-penalty:";
 
   function getLocalDate() {
     const date = new Date();
@@ -32,6 +33,23 @@
       link.classList.toggle("boton-principal", !continuing);
     });
   }
+
+  document.querySelectorAll(".cuestionario[data-quiz-id]").forEach((card) => {
+    const quizId = card.dataset.quizId;
+    const penaltyToggle = card.querySelector("[data-penalty-toggle]");
+    const link = card.querySelector(".quiz-link");
+    if (!penaltyToggle || !link) return;
+
+    penaltyToggle.checked = false;
+    link.addEventListener("click", () => {
+      const key = `${penaltyStoragePrefix}${quizId}`;
+      if (penaltyToggle.checked) {
+        sessionStorage.setItem(key, "true");
+      } else {
+        sessionStorage.removeItem(key);
+      }
+    });
+  });
 
   updateQuizLinks();
 

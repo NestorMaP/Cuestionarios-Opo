@@ -25,7 +25,7 @@ El proceso es manual y no necesita instalar nada ni configurar una API:
 4. El HTML generado se guardará en `assets/cuestionarios/<tema>/`.
 5. Añade su tarjeta y enlace en `index.html`.
 
-La plantilla contiene la estructura HTML y los contratos necesarios para que funcionen los estilos, la corrección, las preguntas anuladas y la persistencia local. Los PDF se conservan como fuente original y los HTML son los cuestionarios que se publican.
+La plantilla contiene la estructura HTML y los contratos necesarios para que funcionen automáticamente los estilos, la corrección, el desmarcado de respuestas, la continuación del cuestionario, la persistencia diaria, la penalización y el porcentaje. Los PDF se conservan como fuente original y los HTML son los cuestionarios que se publican.
 
 ### Prompt para convertir un PDF
 
@@ -52,14 +52,37 @@ Instrucciones:
 2. Guarda el resultado en assets/cuestionarios/[OTRO_TEMA]/[NOMBRE_DEL_HTML].html.
 3. Usa los estilos y scripts compartidos del repositorio. No copies CSS ni la lógica de corrección dentro del HTML.
 4. Mantén el idioma, el texto, la numeración y el orden de las preguntas del PDF.
-5. Crea un data-key único para cada pregunta y usa el mismo valor en el atributo name de sus opciones.
-6. Define window.quizAnswers con la respuesta correcta de cada pregunta.
-7. No inventes respuestas correctas. Si el PDF no incluye la plantilla de respuestas o existe alguna duda, detente y pregúntame antes de completar esa parte.
-8. Si una pregunta está anulada, conserva sus opciones, marca [ANULADA] en el título y usa "anulada" como respuesta.
-9. Conserva los casos clínicos y su contexto mediante bloques intro-caso cuando corresponda.
-10. Añade una tarjeta y un enlace al nuevo cuestionario en index.html con su título, convocatoria y temática.
-11. Comprueba que las rutas relativas a ../../../css/styles.css, ../../../js/access.js y ../../../js/quiz.js son correctas desde la carpeta del cuestionario.
-12. Revisa que no queden preguntas, opciones o respuestas sin convertir y valida los archivos modificados.
+5. Sustituye [identificador-unico] por un identificador estable, corto y sin espacios. Debe ser único para ese cuestionario.
+6. Crea un data-key único para cada pregunta y usa el mismo valor en el atributo name de sus opciones.
+7. Define window.quizAnswers con la respuesta correcta de cada pregunta.
+8. No inventes respuestas correctas. Si el PDF no incluye la plantilla de respuestas o existe alguna duda, detente y pregúntame antes de completar esa parte.
+9. Si una pregunta está anulada, conserva sus opciones, marca [ANULADA] en el título y usa "anulada" como respuesta.
+10. Conserva los casos clínicos y su contexto mediante bloques intro-caso cuando corresponda.
+11. Mantén los elementos id="quiz-form", id="resultado", id="btn-continuar", id="btn-corregir" e id="btn-reiniciar" de la plantilla.
+12. Añade en index.html una tarjeta con esta estructura, sustituyendo los valores entre corchetes:
+
+		<article class="cuestionario" data-quiz-id="[identificador-unico]">
+			<div class="cuestionario-detalles">
+				<div>
+					<h2>[Título]</h2>
+					<p><strong>Convocatoria:</strong> [Comunidad u organismo], [Año]</p>
+					<p><strong>Temática:</strong> [Temática]</p>
+				</div>
+				<label class="penalizacion-control">
+					<input type="checkbox" data-penalty-toggle />
+					<span>Penalizar errores</span>
+					<small>3 fallos quitan 1 acierto</small>
+				</label>
+			</div>
+			<a class="boton boton-principal quiz-link"
+				 href="assets/cuestionarios/[OTRO_TEMA]/[NOMBRE_DEL_HTML].html">
+				Comenzar cuestionario
+			</a>
+		</article>
+
+13. Comprueba que las rutas relativas a ../../../css/styles.css, ../../../js/access.js y ../../../js/quiz.js son correctas desde la carpeta del cuestionario.
+14. No implementes lógica nueva dentro del HTML: quiz.js ya gestiona respuestas guardadas, desmarcado, continuación, penalización y porcentaje con dos decimales.
+15. Revisa que no queden preguntas, opciones o respuestas sin convertir y valida los archivos modificados.
 
 Antes de terminar, dime qué preguntas o respuestas no has podido verificar en el PDF.
 ```
@@ -79,6 +102,8 @@ Cada cuestionario debe ser un HTML independiente que:
 El índice debe incorporar una tarjeta con el título, la convocatoria, la temática y el enlace relativo al nuevo HTML, por ejemplo `assets/cuestionarios/hemato/Cuestionario_hemato.html`.
 
 Las respuestas en curso se guardan únicamente en el navegador mediante `localStorage` y se conservan durante el día actual. El enlace `Volver al índice` permite salir del examen y continuar después sin perder las respuestas de ese día. Al pulsar `Corregir examen` o `Reiniciar cuestionario`, se elimina la selección guardada para que el siguiente acceso empiece sin respuestas preseleccionadas. Los fallos se conservan por separado para futuras funcionalidades y no se envían a ningún servidor. Para llevar los datos a otro dispositivo, exporta `datos-cuestionarios.json` desde el índice e impórtalo en el otro navegador.
+
+En cada tarjeta del índice se puede activar la penalización de errores. Con ella activada, tres respuestas incorrectas restan un acierto. El porcentaje se calcula sobre las preguntas válidas, se muestra con dos decimales y nunca baja de 0 %. La opción se aplica únicamente al acceso siguiente al cuestionario y vuelve a estar desactivada al entrar de nuevo.
 
 ## Contraseña y privacidad
 

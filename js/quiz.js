@@ -5,6 +5,9 @@
   const answers = window.quizAnswers || {};
   const quizId = document.body.dataset.quizId || document.title;
   const storageKey = `quiz-failures:${quizId}`;
+  const penaltyKey = `quiz-penalty:${quizId}`;
+  const penalizeErrors = sessionStorage.getItem(penaltyKey) === "true";
+  sessionStorage.removeItem(penaltyKey);
 
   function getLocalDate() {
     const date = new Date();
@@ -90,6 +93,7 @@
 
   function correctQuiz() {
     let correct = 0;
+    let incorrect = 0;
     let validQuestions = 0;
     const failures = JSON.parse(localStorage.getItem(storageKey) || "{}");
 
@@ -124,6 +128,7 @@
         question.classList.add("correcto");
         delete failures[key];
       } else {
+        incorrect++;
         question.classList.add("incorrecto");
         failures[key] = true;
         const correctOption = question.querySelector(
@@ -141,7 +146,9 @@
     localStorage.setItem(storageKey, JSON.stringify(failures));
     localStorage.removeItem(progressKey);
     continueButton?.setAttribute("hidden", "");
-    result.textContent = `Aciertos: ${correct} de ${validQuestions}`;
+    const score = Math.max(0, correct - (penalizeErrors ? incorrect / 3 : 0));
+    const percentage = validQuestions > 0 ? (score / validQuestions) * 100 : 0;
+    result.textContent = `Aciertos: ${correct} de ${validQuestions} | Porcentaje: ${percentage.toFixed(2)}%`;
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
