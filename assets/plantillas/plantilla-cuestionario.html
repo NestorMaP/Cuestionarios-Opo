@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>[Título del cuestionario]</title>
+    <link rel="stylesheet" href="../../css/styles.css" />
+  </head>
+  <body class="quiz-page" data-quiz-id="[identificador-unico]">
+    <a class="volver-indice" href="../../index.html">Volver al índice</a>
+    <h1>
+      [Título del cuestionario]<br /><small>[Descripción o fuente]</small>
+    </h1>
+
+    <form id="quiz-form">
+      <!-- Repite este bloque para cada convocatoria, comunidad o sección. -->
+      <h2>[Comunidad o convocatoria] - [Año]</h2>
+
+      <!-- Este bloque es opcional y sirve para describir un caso clínico. -->
+      <!--
+      <div class="intro-caso">
+        [Enunciado del caso clínico o información previa]
+      </div>
+      -->
+
+      <!-- Cada data-key debe ser único dentro de todos los cuestionarios. -->
+      <div class="pregunta" data-key="[identificador-pregunta]">
+        <div class="titulo-pregunta">[Número]. [Enunciado de la pregunta]</div>
+        <ul class="opciones">
+          <li>
+            <label
+              ><input type="radio" name="[identificador-pregunta]" value="a" />
+              A) [Opción A]</label
+            >
+          </li>
+          <li>
+            <label
+              ><input type="radio" name="[identificador-pregunta]" value="b" />
+              B) [Opción B]</label
+            >
+          </li>
+          <li>
+            <label
+              ><input type="radio" name="[identificador-pregunta]" value="c" />
+              C) [Opción C]</label
+            >
+          </li>
+          <li>
+            <label
+              ><input type="radio" name="[identificador-pregunta]" value="d" />
+              D) [Opción D]</label
+            >
+          </li>
+        </ul>
+      </div>
+
+      <!--
+      Para una pregunta anulada:
+      1. Mantén sus opciones y añade [ANULADA] al título.
+      2. Usa "anulada" como valor en window.quizAnswers.
+      -->
+    </form>
+
+    <div class="botones-container">
+      <div id="resultado"></div>
+      <button type="button" id="btn-continuar" hidden>
+        Continuar cuestionario
+      </button>
+      <button type="button" id="btn-corregir">Corregir examen</button>
+      <button type="button" id="btn-reiniciar">Reiniciar cuestionario</button>
+    </div>
+
+    <script>
+      // Añade aquí una entrada por pregunta: "identificador": "a", "b", "c", "d" o "anulada".
+      window.quizAnswers = {
+        "[identificador-pregunta]": "[respuesta-correcta]",
+      };
+    </script>
+    <script src="../../js/access.js"></script>
+    <script src="../../js/quiz.js"></script>
+  </body>
+</html>

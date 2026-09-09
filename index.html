@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cuestionarios de oposición</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body class="indice-page">
+    <main class="indice-contenido">
+      <p class="indice-kicker">Banco de estudio</p>
+      <h1>Cuestionarios de oposición</h1>
+      <p class="indice-descripcion">
+        Selecciona un cuestionario para comenzar. La colección irá creciendo a
+        medida que incorporemos nuevos exámenes.
+      </p>
+      <details class="datos-locales">
+        <summary>Gestionar datos de estudio</summary>
+        <div class="datos-locales-contenido">
+          <p>
+            Exporta tus respuestas y preguntas falladas para trasladarlas a otro
+            dispositivo.
+          </p>
+          <div class="indice-acciones" aria-label="Gestión de datos locales">
+            <button
+              class="boton boton-secundario"
+              id="exportar-datos"
+              type="button"
+            >
+              Exportar datos
+            </button>
+            <label class="boton boton-principal" for="importar-datos">
+              Importar datos
+              <input
+                id="importar-datos"
+                type="file"
+                accept="application/json"
+                hidden
+              />
+            </label>
+          </div>
+          <ol class="datos-instrucciones">
+            <li>
+              Pulsa <strong>Exportar datos</strong> en el dispositivo de origen.
+            </li>
+            <li>
+              Transfiere <strong>datos-cuestionarios.json</strong> por correo,
+              nube o USB.
+            </li>
+            <li>
+              En el dispositivo nuevo, pulsa <strong>Importar datos</strong> y
+              selecciona el archivo.
+            </li>
+          </ol>
+        </div>
+      </details>
+
+      <section class="cuestionarios" aria-label="Cuestionarios disponibles">
+        <article class="cuestionario" data-quiz-id="hematologia">
+          <div>
+            <h2>Hematología</h2>
+            <p><strong>Convocatoria:</strong> Andalucía, 2017</p>
+            <p><strong>Temática:</strong> Hematología</p>
+          </div>
+          <a
+            class="boton boton-principal quiz-link"
+            href="assets/cuestionarios/hemato/Cuestionario_hemato.html"
+            >Comenzar cuestionario</a
+          >
+        </article>
+      </section>
+    </main>
+    <script src="js/access.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>
