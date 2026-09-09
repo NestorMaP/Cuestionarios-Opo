@@ -117,7 +117,7 @@ h2 {
   display: flex;
   gap: 10px;
   align-items: center;
-  padding: 12px;
+  padding: 12px 12px 12px 4px;
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.96);
   box-shadow: 0 4px 16px rgba(38, 50, 56, 0.18);
@@ -184,9 +184,10 @@ a:focus-visible {
   background: var(--color-warning-soft);
 }
 #resultado {
-  min-width: 150px;
+  min-width: 0;
   font-weight: 700;
   text-align: center;
+  white-space: nowrap;
   color: var(--color-primary-dark);
 }
 
