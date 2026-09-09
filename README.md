@@ -7,6 +7,7 @@ Colección de cuestionarios de oposición en HTML, CSS y JavaScript, preparada p
 - `index.html`: índice de cuestionarios disponibles.
 - `assets/cuestionarios/general/`: cuestionarios de contenido general.
 - `assets/cuestionarios/hemato/`: cuestionarios de hematología.
+- `assets/cuestionarios/hemostiasia/`: cuestionarios de hemostasia.
 - `assets/plantillas/plantilla-cuestionario.html`: plantilla HTML vacía para crear nuevos cuestionarios.
 - `assets/pdfs/`: PDF originales pendientes de convertir.
 - `css/styles.css`: estilos compartidos por el índice y todos los cuestionarios.

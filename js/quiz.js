@@ -117,6 +117,15 @@
         return;
       }
 
+      if (expected === "sin_verificar") {
+        question.classList.add("no-marcada");
+        title.insertAdjacentHTML(
+          "beforeend",
+          ' <strong class="marca-anulada">(RESPUESTA NO VERIFICADA)</strong>',
+        );
+        return;
+      }
+
       validQuestions++;
       if (!selected) {
         question.classList.add("no-marcada");
