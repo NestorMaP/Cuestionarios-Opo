@@ -8,12 +8,14 @@
   </head>
   <body class="indice-page">
     <main class="indice-contenido">
-      <p class="indice-kicker">Banco de estudio</p>
-      <h1>Cuestionarios de oposición</h1>
-      <p class="indice-descripcion">
-        Selecciona un cuestionario para comenzar. La colección irá creciendo a
-        medida que incorporemos nuevos exámenes.
-      </p>
+      <div class="indice-hero">
+        <p class="indice-kicker">Banco de estudio</p>
+        <h1>Cuestionarios de oposición</h1>
+        <p class="indice-descripcion">
+          Selecciona un cuestionario para comenzar. La colección irá creciendo
+          a medida que incorporemos nuevos exámenes.
+        </p>
+      </div>
       <details class="datos-locales">
         <summary>Gestionar datos de estudio</summary>
         <div class="datos-locales-contenido">
@@ -57,61 +59,76 @@
 
       <section class="cuestionarios" aria-label="Cuestionarios disponibles">
         <article class="cuestionario" data-quiz-id="hematologia">
-          <div class="cuestionario-detalles">
-            <div>
-              <h2>Hematología</h2>
-              <p><strong>Convocatoria:</strong> Andalucía, 2017</p>
-              <p><strong>Temática:</strong> Hematología</p>
-            </div>
-            <label class="penalizacion-control">
-              <input type="checkbox" data-penalty-toggle />
-              <span>Penalizar errores</span>
-              <small>3 fallos quitan 1 acierto</small>
-            </label>
+          <div class="cuestionario-info">
+            <h2>Hematología</h2>
+            <p><strong>Convocatoria:</strong> Andalucía, 2017</p>
+            <p><strong>Temática:</strong> Hematología</p>
           </div>
-          <a
-            class="boton boton-principal quiz-link"
-            href="assets/cuestionarios/hemato/Cuestionario_hemato.html"
-            >Comenzar cuestionario</a
-          >
+          <div class="cuestionario-acciones">
+            <label class="penalizacion-control">
+              <span class="switch">
+                <input type="checkbox" data-penalty-toggle />
+                <span class="switch-riel"></span>
+              </span>
+              <span class="penalizacion-texto">
+                Penalizar errores
+                <small>3 fallos quitan 1 acierto</small>
+              </span>
+            </label>
+            <a
+              class="boton boton-principal quiz-link"
+              href="assets/cuestionarios/hemato/Cuestionario_hemato.html"
+              >Comenzar cuestionario</a
+            >
+          </div>
         </article>
         <article class="cuestionario" data-quiz-id="hemostiasia1">
-          <div class="cuestionario-detalles">
-            <div>
-              <h2>Hemostasia</h2>
-              <p><strong>Convocatoria:</strong> Varias CCAA, varios años</p>
-              <p><strong>Temática:</strong> Hemostasia</p>
-            </div>
-            <label class="penalizacion-control">
-              <input type="checkbox" data-penalty-toggle />
-              <span>Penalizar errores</span>
-              <small>3 fallos quitan 1 acierto</small>
-            </label>
+          <div class="cuestionario-info">
+            <h2>Hemostasia</h2>
+            <p><strong>Convocatoria:</strong> Varias CCAA, varios años</p>
+            <p><strong>Temática:</strong> Hemostasia</p>
           </div>
-          <a
-            class="boton boton-principal quiz-link"
-            href="assets/cuestionarios/hemostiasia/hemostiasia1.html"
-            >Comenzar cuestionario</a
-          >
+          <div class="cuestionario-acciones">
+            <label class="penalizacion-control">
+              <span class="switch">
+                <input type="checkbox" data-penalty-toggle />
+                <span class="switch-riel"></span>
+              </span>
+              <span class="penalizacion-texto">
+                Penalizar errores
+                <small>3 fallos quitan 1 acierto</small>
+              </span>
+            </label>
+            <a
+              class="boton boton-principal quiz-link"
+              href="assets/cuestionarios/hemostiasia/hemostiasia1.html"
+              >Comenzar cuestionario</a
+            >
+          </div>
         </article>
         <article class="cuestionario" data-quiz-id="banco-sangre1">
-          <div class="cuestionario-detalles">
-            <div>
-              <h2>Banco de Sangre</h2>
-              <p><strong>Convocatoria:</strong> Varias CCAA, varios años</p>
-              <p><strong>Temática:</strong> Banco de Sangre</p>
-            </div>
-            <label class="penalizacion-control">
-              <input type="checkbox" data-penalty-toggle />
-              <span>Penalizar errores</span>
-              <small>3 fallos quitan 1 acierto</small>
-            </label>
+          <div class="cuestionario-info">
+            <h2>Banco de Sangre</h2>
+            <p><strong>Convocatoria:</strong> Varias CCAA, varios años</p>
+            <p><strong>Temática:</strong> Banco de Sangre</p>
           </div>
-          <a
-            class="boton boton-principal quiz-link"
-            href="assets/cuestionarios/banco-sangre/banco-sangre1.html"
-            >Comenzar cuestionario</a
-          >
+          <div class="cuestionario-acciones">
+            <label class="penalizacion-control">
+              <span class="switch">
+                <input type="checkbox" data-penalty-toggle />
+                <span class="switch-riel"></span>
+              </span>
+              <span class="penalizacion-texto">
+                Penalizar errores
+                <small>3 fallos quitan 1 acierto</small>
+              </span>
+            </label>
+            <a
+              class="boton boton-principal quiz-link"
+              href="assets/cuestionarios/banco-sangre/banco-sangre1.html"
+              >Comenzar cuestionario</a
+            >
+          </div>
         </article>
       </section>
     </main>

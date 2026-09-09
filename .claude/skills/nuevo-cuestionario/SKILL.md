@@ -99,23 +99,28 @@ esta estructura (sustituyendo los valores):
 
 ```html
 <article class="cuestionario" data-quiz-id="[identificador-unico]">
-  <div class="cuestionario-detalles">
-    <div>
-      <h2>[Título]</h2>
-      <p><strong>Convocatoria:</strong> [Comunidad u organismo], [Año]</p>
-      <p><strong>Temática:</strong> [Temática]</p>
-    </div>
-    <label class="penalizacion-control">
-      <input type="checkbox" data-penalty-toggle />
-      <span>Penalizar errores</span>
-      <small>3 fallos quitan 1 acierto</small>
-    </label>
+  <div class="cuestionario-info">
+    <h2>[Título]</h2>
+    <p><strong>Convocatoria:</strong> [Comunidad u organismo], [Año]</p>
+    <p><strong>Temática:</strong> [Temática]</p>
   </div>
-  <a
-    class="boton boton-principal quiz-link"
-    href="assets/cuestionarios/[tema]/[archivo].html"
-    >Comenzar cuestionario</a
-  >
+  <div class="cuestionario-acciones">
+    <label class="penalizacion-control">
+      <span class="switch">
+        <input type="checkbox" data-penalty-toggle />
+        <span class="switch-riel"></span>
+      </span>
+      <span class="penalizacion-texto">
+        Penalizar errores
+        <small>3 fallos quitan 1 acierto</small>
+      </span>
+    </label>
+    <a
+      class="boton boton-principal quiz-link"
+      href="assets/cuestionarios/[tema]/[archivo].html"
+      >Comenzar cuestionario</a
+    >
+  </div>
 </article>
 ```
 
