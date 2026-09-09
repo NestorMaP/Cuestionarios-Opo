@@ -25,10 +25,11 @@ El proceso es manual y no necesita instalar nada ni configurar una API:
    de qué tema se trata (por ejemplo: "convierte este PDF, es de hemostasia").
 3. Claude Code se encarga del resto automáticamente: eligiendo carpeta,
    nombre de archivo e identificadores, generando el HTML a partir de
-   [plantilla-cuestionario.html](assets/plantillas/plantilla-cuestionario.html)
-   y añadiendo su tarjeta en `index.html`. Solo te preguntará si falta un
-   dato que no puede deducir del PDF (por ejemplo, alguna respuesta correcta
-   que no aparezca en el documento).
+   [plantilla-cuestionario.html](assets/plantillas/plantilla-cuestionario.html),
+   añadiendo su tarjeta en `index.html` y subiendo el cambio directamente a
+   GitHub (commit y push), para que se publique solo. Solo te preguntará si
+   falta un dato que no puede deducir del PDF (por ejemplo, alguna respuesta
+   correcta que no aparezca en el documento).
 
 No necesitas saber nombres de archivo, identificadores ni rutas: de eso se
 encarga la skill `nuevo-cuestionario` del repositorio

@@ -126,14 +126,37 @@ esta estructura (sustituyendo los valores):
   repositorio.
 - Confirma que las rutas relativas del nuevo HTML son correctas.
 
-## 8. Informa al usuario en lenguaje sencillo
+## 8. Publica el cambio tú mismo: commit y push automáticos
+
+Quien usa este repositorio no sabe usar git, así que esta skill es la única
+autorizada a hacer commit y push sin pedir confirmación en cada paso. Al
+terminar una conversión, completa siempre esto (sin preguntar si quiere que
+lo hagas):
+
+1. `git add` de todos los archivos que hayas creado o modificado en esta
+   conversión: el HTML nuevo del cuestionario, `index.html`, y cualquier
+   otro archivo tocado (por ejemplo `css/styles.css` si añadiste una nota).
+   Incluye también el PDF de `assets/pdfs/` si no estaba ya versionado.
+2. Crea un commit con un mensaje breve en español describiendo el
+   cuestionario añadido (p. ej. "Añadir cuestionario de Banco de Sangre"),
+   siguiendo el estilo de los commits ya existentes en el repositorio
+   (`git log` para verlo) y con cualquier línea de atribución que tus
+   propias instrucciones de sistema indiquen para commits de Claude Code.
+3. Haz `git push` a la rama actual (normalmente `main`) para que
+   GitHub Pages publique el cuestionario nuevo automáticamente.
+4. Si el push falla porque la rama remota tiene cambios que no tienes en
+   local, haz `git pull` primero (nunca `--force`) y reinténtalo. Si surge
+   un conflicto que no puedas resolver de forma segura, detente y explícale
+   al usuario en lenguaje sencillo qué ha pasado, sin forzar nada.
+
+## 9. Informa al usuario en lenguaje sencillo
 
 Al terminar, dile en 2-3 frases sin tecnicismos:
-- Qué cuestionario has creado y dónde aparece en el índice.
+- Qué cuestionario has creado y que ya está publicado (subido) en el sitio.
 - Qué preguntas (si alguna) han quedado marcadas como "sin verificar" porque
   no pudiste confirmar la respuesta correcta en el PDF, pidiéndole solo esas
   respuestas concretas si las necesita.
 - Que el PDF original se conserva en `assets/pdfs/` como fuente.
 
-No le pidas que revise nombres de archivo, identificadores o rutas: esas
-partes son responsabilidad tuya, no suya.
+No le pidas que revise nombres de archivo, identificadores, rutas, ni que
+haga commit o push: todo eso es responsabilidad tuya, no suya.
