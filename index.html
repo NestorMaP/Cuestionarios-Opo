@@ -8,14 +8,13 @@
   </head>
   <body class="indice-page">
     <main class="indice-contenido">
-      <div class="ajustes-menu">
+      <div class="barra-flotante">
         <button
           type="button"
           class="ajustes-boton"
-          id="ajustes-toggle"
-          aria-haspopup="true"
-          aria-expanded="false"
-          aria-label="Opciones"
+          id="ayuda-toggle"
+          aria-haspopup="dialog"
+          aria-label="Ayuda"
         >
           <svg
             viewBox="0 0 24 24"
@@ -27,21 +26,140 @@
             stroke-linecap="round"
             stroke-linejoin="round"
           >
-            <circle cx="12" cy="12" r="3"></circle>
-            <path
-              d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"
-            ></path>
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+            <line x1="12" y1="17" x2="12.01" y2="17"></line>
           </svg>
         </button>
-        <div class="ajustes-lista" id="ajustes-lista" hidden>
-          <button type="button" id="borrar-fallos" class="ajustes-item">
-            Eliminar registros de respuestas
+        <div class="ajustes-menu">
+          <button
+            type="button"
+            class="ajustes-boton"
+            id="ajustes-toggle"
+            aria-haspopup="true"
+            aria-expanded="false"
+            aria-label="Opciones"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="3"></circle>
+              <path
+                d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"
+              ></path>
+            </svg>
           </button>
-          <button type="button" id="restablecer-todo" class="ajustes-item">
-            Restablecer todo
-          </button>
+          <div class="ajustes-lista" id="ajustes-lista" hidden>
+            <button type="button" id="borrar-fallos" class="ajustes-item">
+              Eliminar registros de respuestas
+            </button>
+            <button type="button" id="restablecer-todo" class="ajustes-item">
+              Restablecer todo
+            </button>
+          </div>
         </div>
       </div>
+
+      <div class="ayuda-overlay" id="ayuda-overlay" hidden>
+        <div class="ayuda-panel" role="dialog" aria-label="Ayuda">
+          <button
+            type="button"
+            class="ayuda-cerrar"
+            id="ayuda-cerrar"
+            aria-label="Cerrar"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              width="16"
+              height="16"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+          <h2>Cómo funciona</h2>
+          <div class="ayuda-seccion">
+            <h3>Hacer un cuestionario</h3>
+            <p>
+              Elige uno del listado y pulsa "Comenzar cuestionario". Marca tus
+              respuestas y pulsa "Corregir examen" para ver los aciertos y
+              fallos, o "Reiniciar cuestionario" para volver a empezar.
+            </p>
+          </div>
+          <div class="ayuda-seccion">
+            <h3>Continuar donde lo dejaste</h3>
+            <p>
+              Mientras no corrijas el examen, tus respuestas marcadas ese día
+              se guardan solas en el navegador. Puedes salir con "Volver al
+              índice" y el botón cambiará a "Continuar cuestionario". Al día
+              siguiente el cuestionario vuelve a empezar en blanco.
+            </p>
+          </div>
+          <div class="ayuda-seccion">
+            <h3>Penalizar errores</h3>
+            <p>
+              Activa el interruptor de un cuestionario antes de entrar para
+              que cada 3 fallos resten 1 acierto en el porcentaje final. Se
+              desactiva solo cada vez que vuelves a entrar.
+            </p>
+          </div>
+          <div class="ayuda-seccion">
+            <h3>Llevar tus datos a otro dispositivo</h3>
+            <p>
+              En "Gestionar datos de estudio" puedes exportar un archivo con
+              tus respuestas y fallos guardados, y luego importarlo en otro
+              navegador u ordenador para seguir donde lo dejaste.
+            </p>
+          </div>
+          <div class="ayuda-seccion">
+            <h3>Opciones (icono de engranaje)</h3>
+            <p>
+              Desde ahí puedes borrar solo el registro de preguntas falladas,
+              o restablecer todos los datos guardados si quieres empezar de
+              cero.
+            </p>
+          </div>
+          <div class="ayuda-seccion">
+            <h3>Añadir un cuestionario nuevo</h3>
+            <ol class="ayuda-pasos">
+              <li>Abre la carpeta del proyecto en VSCode.</li>
+              <li>
+                Copia el PDF del examen dentro de la carpeta
+                <code>assets/pdfs</code>.
+              </li>
+              <li>
+                Arriba a la derecha, cambia el chat de Copilot a
+                <strong>Claude Code</strong>.
+              </li>
+              <li>
+                Escríbele algo como: "He dejado un nuevo PDF en assets/pdfs,
+                genera un nuevo cuestionario a partir de él".
+              </li>
+              <li>
+                Claude Code creará el cuestionario y lo añadirá al listado;
+                revisa que todo esté correcto y ya estará disponible aquí.
+              </li>
+            </ol>
+          </div>
+          <p class="ayuda-nota">
+            Todo se guarda únicamente en tu navegador: nada se envía a ningún
+            servidor.
+          </p>
+        </div>
+      </div>
+
       <div class="indice-hero">
         <p class="indice-kicker">Banco de estudio</p>
         <h1>Cuestionarios de oposición</h1>

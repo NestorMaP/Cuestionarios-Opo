@@ -98,6 +98,23 @@
     window.alert("Todos los datos se han restablecido.");
   });
 
+  const ayudaOverlay = document.getElementById("ayuda-overlay");
+  const ayudaToggle = document.getElementById("ayuda-toggle");
+  const ayudaCerrar = document.getElementById("ayuda-cerrar");
+
+  function cerrarAyuda() {
+    ayudaOverlay?.setAttribute("hidden", "");
+  }
+
+  ayudaToggle?.addEventListener("click", () => {
+    cerrarAjustes();
+    ayudaOverlay?.removeAttribute("hidden");
+  });
+  ayudaCerrar?.addEventListener("click", cerrarAyuda);
+  ayudaOverlay?.addEventListener("click", (event) => {
+    if (event.target === ayudaOverlay) cerrarAyuda();
+  });
+
   document.addEventListener("click", (event) => {
     if (
       !ajustesLista?.hasAttribute("hidden") &&
@@ -111,6 +128,7 @@
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
       cerrarAjustes();
+      cerrarAyuda();
     }
   });
 
